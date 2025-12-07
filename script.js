@@ -90,7 +90,7 @@ function handleSendMessage() {
         displayMessage(response, 'bot');
 
         // Save to history
-        saveChatHistory();
+        //saveChatHistory();
     }, 800 + Math.random() * 400); // Random delay 800-1200ms for realism
 }
 
