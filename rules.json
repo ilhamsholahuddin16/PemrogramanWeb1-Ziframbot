@@ -1,0 +1,120 @@
+{
+    "rules": [
+        {
+            "keywords": [
+                "halo",
+                "hai",
+                "hello",
+                "hi",
+                "hey"
+            ],
+            "response": "Halo! Selamat datang di ZiframeBot. Ada yang bisa saya bantu hari ini?"
+        },
+        {
+            "keywords": [
+                "apa itu chatbot",
+                "chatbot adalah",
+                "pengertian chatbot",
+                "definisi chatbot"
+            ],
+            "response": "Chatbot adalah sistem otomatis yang dapat merespons pertanyaan secara instan menggunakan aturan yang telah ditentukan. Chatbot membantu bisnis melayani pelanggan 24/7 tanpa henti!"
+        },
+        {
+            "keywords": [
+                "cara kerja",
+                "bagaimana kerja",
+                "how it works",
+                "prinsip kerja"
+            ],
+            "response": "Chatbot ini bekerja menggunakan rule-based engine. Ketika Anda mengirim pesan, sistem akan mencocokkan kata kunci dengan database jawaban yang sudah ditentukan, lalu memberikan respons yang sesuai. Sederhana tapi efektif!"
+        },
+        {
+            "keywords": [
+                "siapa kamu",
+                "kamu siapa",
+                "who are you",
+                "perkenalan"
+            ],
+            "response": "Saya ZiframeBot, chatbot sederhana yang dibuat menggunakan JavaScript untuk membantu menjawab pertanyaan Anda. Saya di-design untuk memberikan respons cepat dan akurat!"
+        },
+        {
+            "keywords": [
+                "fitur",
+                "kemampuan",
+                "bisa apa",
+                "features",
+                "capability"
+            ],
+            "response": "Saya memiliki beberapa fitur unggulan:\n- Respons instan 24/7\n- Rule-based engine yang konsisten\n- Mudah diintegrasikan ke website\n- Customizable via JSON\n- UI modern dan user-friendly\n\nCoba tanya tentang integrasi atau harga!"
+        },
+        {
+            "keywords": [
+                "harga",
+                "biaya",
+                "pricing",
+                "tarif",
+                "cost"
+            ],
+            "response": "Untuk informasi harga dan paket layanan yang sesuai dengan kebutuhan bisnis Anda, silakan hubungi tim kami melalui halaman Contact. Kami menawarkan berbagai paket yang fleksibel!"
+        },
+        {
+            "keywords": [
+                "integrasi",
+                "cara pasang",
+                "install",
+                "implementasi",
+                "setup"
+            ],
+            "response": "Integrasi ZiframeBot sangat mudah! Cukup tambahkan satu baris kode ke website Anda:\n\n<script src=\"https://ziframebot.com/chatbot.js\"></script>\n\nLihat halaman Documentation untuk panduan lengkap!"
+        },
+        {
+            "keywords": [
+                "terima kasih",
+                "thanks",
+                "makasih",
+                "thank you",
+                "thx"
+            ],
+            "response": "Sama-sama! Senang bisa membantu. Ada yang lain yang ingin ditanyakan? Jangan ragu untuk bertanya!"
+        },
+        {
+            "keywords": [
+                "dokumentasi",
+                "docs",
+                "panduan",
+                "guide",
+                "tutorial"
+            ],
+            "response": "Dokumentasi lengkap tersedia di halaman Documentation. Di sana Anda bisa menemukan:\n- Panduan integrasi\n- Konfigurasi rules\n- Best practices\n- Troubleshooting\n\nKunjungi halaman Docs untuk info lebih detail!"
+        },
+        {
+            "keywords": [
+                "kontak",
+                "hubungi",
+                "contact",
+                "email"
+            ],
+            "response": "Anda bisa menghubungi kami melalui:\nEmail: contact@ziframebot.com\nAtau kunjungi halaman Contact untuk form kontak lengkap.\n\nTim kami siap membantu Anda!"
+        },
+        {
+            "keywords": [
+                "keunggulan",
+                "kelebihan",
+                "advantage",
+                "benefit",
+                "manfaat"
+            ],
+            "response": "Keunggulan ZiframeBot:\n- Ringan & cepat - tidak membebani website\n- Mudah dikustomisasi - edit rules via JSON\n- Hemat biaya - solusi efisien untuk UMKM\n- Respons instan - tidak ada delay\n- UI modern - desain menarik dan profesional\n- Tanpa maintenance rumit - plug and play!"
+        },
+        {
+            "keywords": [
+                "demo",
+                "coba",
+                "try",
+                "test"
+            ],
+            "response": "Anda sedang menggunakan demo chatbot kami sekarang! Coba tanyakan tentang fitur, harga, integrasi, atau topik lainnya. Rasakan sendiri kemudahan berinteraksi dengan ZiframeBot!"
+        }
+    ],
+    "fallback": "Maaf, saya belum memahami pertanyaan Anda. Coba tanyakan tentang:\n- Fitur chatbot\n- Cara kerja\n- Harga & paket\n- Integrasi\n- Dokumentasi\n\nAtau ketik 'halo' untuk memulai percakapan!"
+}

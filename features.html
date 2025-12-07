@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Fitur-fitur unggulan ZiframeBot - Rule-based engine, integrasi mudah, UI modern, dan customizable.">
+    <title>Features - ZiframeBot</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-gray-900 font-sans">
+
+    <!-- Navigation -->
+    <nav class="sticky-top bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="brand">
+                    <a href="index.html" class="text-2xl font-bold flex items-center gap-2"
+                        style="background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Home</a>
+                    <a href="features.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Features</a>
+                    <a href="chat.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Demo</a>
+                    <a href="docs.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Docs</a>
+                    <a href="about.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">About</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 rounded-full font-semibold transition-all btn-gradient text-white shadow-md hover:shadow-lg">
+                        Contact
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-blue-900 hover:text-purple-600">Home</a>
+                <a href="features.html" class="block py-2 text-blue-900 hover:text-purple-600">Features</a>
+                <a href="chat.html" class="block py-2 text-blue-900 hover:text-purple-600">Demo</a>
+                <a href="docs.html" class="block py-2 text-blue-900 hover:text-purple-600">Docs</a>
+                <a href="about.html" class="block py-2 text-blue-900 hover:text-purple-600">About</a>
+                <a href="contact.html" class="block py-2 text-blue-900 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-6">
+        <div class="container mx-auto max-w-5xl text-center">
+            <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight fade-in">
+                Fitur <span class="gradient-text">Unggulan</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto fade-in">
+                Semua yang Anda butuhkan untuk memberikan customer experience terbaik
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-12 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Feature 1: Rule-Based Engine -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div
+                        class="text-4xl bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-blue-600 font-bold">
+                        <span class="material-icons">settings</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Rule-Based Engine</h3>
+                    <p class="text-gray-600 mb-4">
+                        Sistem berbasis aturan yang sederhana namun powerful. Cocok untuk FAQ, customer support, dan
+                        lead generation.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Respons
+                            konsisten & akurat</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Mudah
+                            diprediksi</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Tidak perlu
+                            training data</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Maintenance
+                            minimal</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2: Easy Integration -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div
+                        class="text-4xl bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-purple-600 font-bold">
+                        <span class="material-icons">power</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Integrasi Mudah</h3>
+                    <p class="text-gray-600 mb-4">
+                        Tambahkan chatbot ke website Anda hanya dengan satu baris kode. Tidak perlu setup rumit atau
+                        konfigurasi kompleks.
+                    </p>
+                    <div class="bg-gray-900 rounded-lg p-4 text-sm font-mono text-blue-400">
+                        &lt;script src="chatbot.js"&gt;&lt;/script&gt;
+                    </div>
+                </div>
+
+                <!-- Feature 3: Fast Response -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div
+                        class="text-4xl bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-indigo-600 font-bold">
+                        <span class="material-icons">bolt</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Respon Cepat & Konsisten</h3>
+                    <p class="text-gray-600 mb-4">
+                        Waktu respons di bawah 1 detik. Tidak ada delay, tidak ada waiting time. Pelanggan mendapat
+                        jawaban instant.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Response
+                            time &lt; 1 second</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> 24/7
+                            availability</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Unlimited
+                            conversations</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Zero
+                            downtime</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 4: Modern UI -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div
+                        class="text-4xl bg-pink-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-pink-600 font-bold">
+                        <span class="material-icons">palette</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">UI Chat Modern</h3>
+                    <p class="text-gray-600 mb-4">
+                        Desain chat yang elegan dan user-friendly. Bubble chat, typing indicator, smooth animations, dan
+                        responsive design.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Beautiful
+                            chat bubbles</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Typing
+                            indicator</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Smooth
+                            animations</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Mobile
+                            responsive</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 5: Customizable -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div
+                        class="text-4xl bg-cyan-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-cyan-600 font-bold">
+                        <span class="material-icons">construction</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Customizable via JSON</h3>
+                    <p class="text-gray-600 mb-4">
+                        Edit aturan percakapan melalui file JSON sederhana. Tidak perlu coding, tidak perlu deployment
+                        ulang.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Edit rules
+                            tanpa coding</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Format JSON
+                            sederhana</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Hot reload
+                            support</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Version
+                            control friendly</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 6: Lightweight -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div
+                        class="text-4xl bg-orange-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-orange-600 font-bold">
+                        <span class="material-icons">rocket_launch</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Ringan & Efisien</h3>
+                    <p class="text-gray-600 mb-4">
+                        File size minimal, tidak membebani website. Load time cepat, performa optimal di semua device.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Small bundle
+                            size</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> No
+                            dependencies</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Fast load
+                            time</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> SEO friendly
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Features -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-50/30 to-blue-100/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-display font-bold mb-4">
+                    Fitur <span class="gradient-text">Teknis</span>
+                </h2>
+                <p class="text-xl text-gray-700">
+                    Built with modern web technologies
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Technical Feature 1 -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                        <span class="text-2xl"><span class="material-icons">save</span></span>
+                        LocalStorage Integration
+                    </h3>
+                    <p class="text-gray-700">
+                        Chat history disimpan di browser pengguna. Percakapan tetap tersimpan meskipun halaman
+                        di-refresh.
+                    </p>
+                </div>
+
+                <!-- Technical Feature 2 -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                        <span class="text-2xl"><span class="material-icons">search</span></span>
+                        Smart Keyword Matching
+                    </h3>
+                    <p class="text-gray-700">
+                        Algoritma matching yang cerdas. Mengenali berbagai variasi pertanyaan untuk memberikan jawaban
+                        yang tepat.
+                    </p>
+                </div>
+
+                <!-- Technical Feature 3 -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                        <span class="text-2xl"><span class="material-icons">smartphone</span></span>
+                        Fully Responsive
+                    </h3>
+                    <p class="text-gray-700">
+                        Bekerja sempurna di desktop, tablet, dan mobile. UI otomatis menyesuaikan dengan ukuran layar.
+                    </p>
+                </div>
+
+                <!-- Technical Feature 4 -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                        <span class="text-2xl"><span class="material-icons">gps_fixed</span></span>
+                        Fallback Response
+                    </h3>
+                    <p class="text-gray-700">
+                        Jika pertanyaan tidak ditemukan dalam rules, chatbot memberikan fallback response yang helpful.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">
+                Siap Mencoba <span class="gradient-text">ZiframeBot?</span>
+            </h2>
+            <p class="text-xl text-gray-700 mb-8">
+                Rasakan sendiri kemudahan dan kecepatan chatbot kami
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="chat.html"
+                    class="btn-gradient px-10 py-4 rounded-full font-semibold text-lg text-white shadow-lg shadow-blue-500/50 inline-flex items-center justify-center gap-2">
+                    <span class="material-icons">rocket_launch</span> Coba Demo Gratis
+                </a>
+                <a href="docs.html"
+                    class="btn-white px-10 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2">
+                    <span class="material-icons">library_books</span> Baca Dokumentasi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-6 bg-blue-900 text-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Brand -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-bold mb-2"
+                        style="background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </h3>
+                    <p class="text-blue-200 text-sm mb-3 leading-relaxed">
+                        Solusi chatbot cerdas berbasis AI untuk meningkatkan customer experience dan efisiensi bisnis
+                        Anda.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">facebook</span></a>
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">flutter_dash</span></a>
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">photo_camera</span></a>
+                    </div>
+                </div>
+
+                <!-- Produk -->
+                <div>
+                    <h5 class="font-bold mb-2 text-white">Produk</h5>
+                    <ul class="space-y-1 text-sm text-blue-200">
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a>
+                        </li>
+                        <li><a href="chat.html" class="hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">Dokumentasi</a>
+                        </li>
+                        <li><a href="index.html#paket" class="hover:text-white transition-colors">Harga</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Perusahaan -->
+                <div>
+                    <h5 class="font-bold mb-2 text-white">Perusahaan</h5>
+                    <ul class="space-y-1 text-sm text-blue-200">
+                        <li><a href="about.html" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-800 mt-6 pt-4 text-center">
+                <p class="text-blue-300 text-xs">
+                    &copy; 2025 ZIFrameBot. All rights reserved. Made with ❤️ in Indonesia
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

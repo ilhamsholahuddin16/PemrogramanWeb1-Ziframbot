@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hubungi ZiframeBot - Kami siap membantu Anda mengimplementasikan chatbot untuk bisnis Anda.">
+    <title>Contact - ZiframeBot</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-gray-900 font-sans">
+
+    <!-- Navigation -->
+    <nav class="sticky-top bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="brand">
+                    <a href="index.html" class="text-2xl font-bold flex items-center gap-2"
+                        style="background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Home</a>
+                    <a href="features.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Features</a>
+                    <a href="chat.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Demo</a>
+                    <a href="docs.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Docs</a>
+                    <a href="about.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">About</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 rounded-full font-semibold transition-all btn-gradient text-white shadow-md hover:shadow-lg">
+                        Contact
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-blue-900 hover:text-purple-600">Home</a>
+                <a href="features.html" class="block py-2 text-blue-900 hover:text-purple-600">Features</a>
+                <a href="chat.html" class="block py-2 text-blue-900 hover:text-purple-600">Demo</a>
+                <a href="docs.html" class="block py-2 text-blue-900 hover:text-purple-600">Docs</a>
+                <a href="about.html" class="block py-2 text-blue-900 hover:text-purple-600">About</a>
+                <a href="contact.html" class="block py-2 text-blue-900 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 fade-in">
+                Hubungi <span class="gradient-text">Kami</span>
+            </h1>
+            <p class="text-xl text-gray-700 fade-in">
+                Kami siap membantu Anda mengimplementasikan chatbot untuk bisnis Anda
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-12 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- Contact Form -->
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h2 class="text-3xl font-display font-bold mb-6">Kirim Pesan</h2>
+                    <p class="text-gray-700 mb-6">
+                        Isi form di bawah ini dan tim kami akan menghubungi Anda dalam 1x24 jam.
+                    </p>
+
+                    <form id="contact-form" class="space-y-6">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2">Nama Lengkap *</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                placeholder="Ilham">
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                placeholder="Ilham@example.com">
+                        </div>
+
+                        <!-- Phone -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium mb-2">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                placeholder="+62 812 3456 7890">
+                        </div>
+
+                        <!-- Subject -->
+                        <div>
+                            <label for="subject" class="block text-sm font-medium mb-2">Subjek *</label>
+                            <select id="subject" name="subject" required
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option value="">Pilih subjek...</option>
+                                <option value="demo">Request Demo</option>
+                                <option value="pricing">Informasi Harga</option>
+                                <option value="integration">Bantuan Integrasi</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Pesan *</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                                placeholder="Ceritakan kebutuhan Anda..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit"
+                            class="w-full btn-gradient text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg shadow-blue-500/50 flex items-center justify-center gap-2">
+                            <span>Kirim Pesan</span>
+                            <span class="material-icons">send</span>
+                        </button>
+
+                        <!-- Success Message (Hidden by default) -->
+                        <div id="success-message"
+                            class="hidden bg-green-500/20 border border-green-500/50 rounded-xl p-4 text-center">
+                            <p class="text-green-300 font-medium"> Pesan berhasil dikirim! Kami akan menghubungi Anda
+                                segera.</p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <!-- Contact Details -->
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-6">Informasi Kontak</h3>
+
+                        <div class="space-y-6">
+                            <!-- Email -->
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 text-white">
+                                    <span class="material-icons">email</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email</h4>
+                                    <a href="mailto:contact@ziframebot.web.id" class="text-blue-400 hover:text-purple-200">
+                                        contact@ziframebot.web.id
+                                    </a>
+                                    <p class="text-sm text-gray-600 mt-1">Response dalam 1x24 jam</p>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 text-white">
+                                    <span class="material-icons">smartphone</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Telepon</h4>
+                                    <a href="tel:+628123456789" class="text-blue-400 hover:text-purple-200">
+                                        +62 812 3456 7890
+                                    </a>
+                                    <p class="text-sm text-gray-600 mt-1">Senin - Jumat, 09:00 - 17:00 WIB</p>
+                                </div>
+                            </div>
+
+                            <!-- Address -->
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 text-white">
+                                    <span class="material-icons">location_on</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Alamat</h4>
+                                    <p class="text-gray-700">
+                                        Jl. Puspitek No. 123<br>
+                                        Tangerang Selatan, 12345<br>
+                                        Indonesia
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-6">Follow Us</h3>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="#"
+                                class="flex border border-1 items-center gap-3 bg-white/5 hover:bg-white/10 p-4 rounded-xl transition-all">
+                                <span class="text-2xl"><span class="material-icons">tag</span></span>
+                                <span class="font-medium">Twitter</span>
+                            </a>
+
+                            <a href="#"
+                                class="flex border border-1 gap-3 bg-white/5 hover:bg-white/10 p-4 rounded-xl transition-all">
+                                <span class="text-2xl"><span class="material-icons">business</span></span>
+                                <span class="font-medium">LinkedIn</span>
+                            </a>
+
+                            <a href="#"
+                                class="flex border border-1 items-center gap-3 bg-white/5 hover:bg-white/10 p-4 rounded-xl transition-all">
+                                <span class="text-2xl"><span class="material-icons">facebook</span></span>
+                                <span class="font-medium">Facebook</span>
+                            </a>
+
+                            <a href="#"
+                                class="flex border border-1 items-center gap-3 bg-white/5 hover:bg-white/10 p-4 rounded-xl transition-all">
+                                <span class="text-2xl"><span class="material-icons">photo_camera</span></span>
+                                <span class="font-medium">Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-6">Quick Links</h3>
+
+                        <div class="space-y-3">
+                            <a href="chat.html"
+                                class="flex items-center gap-3 text-gray-700 hover:text-blue-400 transition-all">
+                                <span><span class="material-icons">rocket_launch</span></span>
+                                <span>Coba Demo Chatbot</span>
+                            </a>
+                            <a href="docs.html"
+                                class="flex items-center gap-3 text-gray-700 hover:text-blue-400 transition-all">
+                                <span><span class="material-icons">library_books</span></span>
+                                <span>Baca Dokumentasi</span>
+                            </a>
+                            <a href="features.html"
+                                class="flex items-center gap-3 text-gray-700 hover:text-blue-400 transition-all">
+                                <span><span class="material-icons">auto_awesome</span></span>
+                                <span>Lihat Fitur</span>
+                            </a>
+                            <a href="about.html"
+                                class="flex items-center gap-3 text-gray-700 hover:text-blue-400 transition-all">
+                                <span><span class="material-icons">info</span></span>
+                                <span>Tentang Kami</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-blue-50/30 to-blue-100/30">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-display font-bold mb-4">
+                    Frequently Asked <span class="gradient-text">Questions</span>
+                </h2>
+                <p class="text-xl text-gray-700">
+                    Pertanyaan yang sering diajukan
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-2">Berapa lama waktu implementasi?</h3>
+                    <p class="text-gray-700">
+                        Implementasi ZiframeBot sangat cepat. Untuk setup dasar, hanya butuh 5-10 menit.
+                        Untuk customization lengkap, biasanya selesai dalam 1-2 hari kerja.
+                    </p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-2">Apakah perlu server khusus?</h3>
+                    <p class="text-gray-700">
+                        Tidak perlu! ZiframeBot bekerja sepenuhnya di client-side. Anda hanya perlu hosting untuk file
+                        HTML, CSS, dan JavaScript.
+                    </p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-2">Apakah bisa custom sesuai kebutuhan?</h3>
+                    <p class="text-gray-700">
+                        Tentu! Anda bisa custom rules, styling, dan behavior chatbot sesuai kebutuhan bisnis Anda.
+                        Tim kami juga siap membantu customization lebih lanjut.
+                    </p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-2">Bagaimana dengan support dan maintenance?</h3>
+                    <p class="text-gray-700">
+                        Kami menyediakan dokumentasi lengkap dan support via email. Untuk paket enterprise,
+                        tersedia dedicated support dan maintenance service.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-blue-900 text-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Brand -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-bold mb-2"
+                        style="background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </h3>
+                    <p class="text-blue-200 text-sm mb-3 leading-relaxed">
+                        Solusi chatbot cerdas berbasis AI untuk meningkatkan customer experience dan efisiensi bisnis
+                        Anda.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">facebook</span></a>
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">flutter_dash</span></a>
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">photo_camera</span></a>
+                    </div>
+                </div>
+
+                <!-- Produk -->
+                <div>
+                    <h5 class="font-bold mb-2 text-white">Produk</h5>
+                    <ul class="space-y-1 text-sm text-blue-200">
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="chat.html" class="hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">Dokumentasi</a></li>
+                        <li><a href="index.html#paket" class="hover:text-white transition-colors">Harga</a></li>
+                    </ul>
+                </div>
+
+                <!-- Perusahaan -->
+                <div>
+                    <h5 class="font-bold mb-2 text-white">Perusahaan</h5>
+                    <ul class="space-y-1 text-sm text-blue-200">
+                        <li><a href="about.html" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-800 mt-6 pt-4 text-center">
+                <p class="text-blue-300 text-xs">
+                    &copy; 2025 ZIFrameBot. All rights reserved. Made with ❤️ in Indonesia
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .hover-blue:hover {
+            color: #60a5fa !important;
+        }
+    </style>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Show success message
+            successMessage.classList.remove('hidden');
+
+            // Reset form
+            contactForm.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+            }, 5000);
+
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body>
+
+</html>

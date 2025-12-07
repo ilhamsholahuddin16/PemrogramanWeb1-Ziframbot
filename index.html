@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ZIFrameBot - AI Chatbot pintar untuk website dan aplikasi Anda. Tingkatkan kepuasan pelanggan otomatis.">
+    <title>ZIFrameBot</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-gray-900 font-sans">
+
+    <!-- Navigation -->
+    <nav class="sticky-top bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="brand">
+                    <a href="index.html" class="text-2xl font-bold flex items-center gap-2"
+                        style="background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors border-b-2 border-transparent hover:border-purple-600">Home</a>
+                    <a href="features.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Features</a>
+                    <a href="chat.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Demo</a>
+                    <a href="docs.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Docs</a>
+                    <a href="about.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">About</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 rounded-full font-semibold transition-all btn-gradient text-white shadow-md hover:shadow-lg">
+                        Contact
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-blue-900 hover:text-purple-600 font-semibold">Home</a>
+                <a href="features.html" class="block py-2 text-blue-900 hover:text-purple-600">Features</a>
+                <a href="chat.html" class="block py-2 text-blue-900 hover:text-purple-600">Demo</a>
+                <a href="docs.html" class="block py-2 text-blue-900 hover:text-purple-600">Docs</a>
+                <a href="about.html" class="block py-2 text-blue-900 hover:text-purple-600">About</a>
+                <a href="contact.html" class="block py-2 text-blue-900 hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-16 pb-48 px-6 overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+            <div class="chat-bubble bubble1">Perbedaan kedua produk itu apa?</div>
+            <div class="chat-bubble bubble2">Stok produk ini masih ada?</div>
+            <div class="chat-bubble bubble3">Saya mau pengembalian barang !</div>
+            <div class="chat-bubble bubble4">Bagaimana cara daftar akun baru?</div>
+            <div class="chat-bubble bubble5">Kapan pesanan saya sampai?</div>
+            <div class="chat-bubble bubble6">Tolong hubungkan dengan admin</div>
+
+            <!-- Avatars -->
+            <div class="chat-avatar avatar1"><img src="img/person1.jpeg" alt=""></div>
+            <div class="chat-avatar avatar2"><img src="img/person2.jpeg" alt=""></div>
+            <div class="chat-avatar avatar3"><img src="img/person3.jpeg" alt=""></div>
+            <div class="chat-avatar avatar4"><img src="img/person4.jpeg" alt=""></div>
+            <div class="chat-avatar avatar5"><img src="img/person5.jpeg" alt=""></div>
+            <div class="chat-avatar avatar6"><img src="img/person6.jpeg" alt=""></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto max-w-5xl text-center relative">
+            <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight fade-in">
+                AI Chatbot pintar untuk<br><span class="gradient-text">website dan aplikasi Anda</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto fade-in">
+                Jawab pertanyaan pelanggan otomatis, tingkatkan kepuasan, dan kurangi beban tim support dengan integrasi
+                mudah.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                <a href="features.html"
+                    class="btn-gradient px-10 py-5 rounded-full font-bold text-white shadow-lg shadow-blue-500/30 text-lg">
+                    Pelajari Fitur
+                </a>
+                <a href="chat.html" class="btn-white px-10 py-5 rounded-full font-bold text-lg">
+                    Coba Demo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- FITUR -->
+    <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-display font-bold mb-4">
+                FITUR <span class="gradient-text">UNGGULAN</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Temukan kemampuan terbaik ZIFrameBot yang siap membantu bisnis Anda lebih efisien.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                <div
+                    class="text-4xl bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-blue-600 font-bold">
+                    01</div>
+                <h3 class="text-2xl font-bold mb-3 text-blue-900">Natural</h3>
+                <p class="text-gray-600">
+                    Respon otomatis pelanggan dengan AI yang memahami konteks percakapan secara mendalam
+                    dan
+                    natural.
+                </p>
+            </div>
+            <!-- Fitur 2 -->
+            <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                <div
+                    class="text-4xl bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-purple-600 font-bold">
+                    02</div>
+                <h3 class="text-2xl font-bold mb-3 text-blue-900">Integrasi</h3>
+                <p class="text-gray-600">
+                    Hubungkan chatbot ke website, WhatsApp, atau aplikasi Anda tanpa konfigurasi rumit.
+                </p>
+            </div>
+            <!-- Fitur 3 -->
+            <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                <div
+                    class="text-4xl bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-indigo-600 font-bold">
+                    03</div>
+                <h3 class="text-2xl font-bold mb-3 text-blue-900">Analitik</h3>
+                <p class="text-gray-600">
+                    Pantau performa chatbot dan interaksi pelanggan secara langsung melalui dashboard
+                    pintar.
+                </p>
+            </div>
+            <!-- Fitur 4 -->
+            <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                <div
+                    class="text-4xl bg-pink-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-pink-600 font-bold">
+                    04</div>
+                <h3 class="text-2xl font-bold mb-3 text-blue-900">Otomatisasi</h3>
+                <p class="text-gray-600">
+                    Kirim pesan otomatis ke pelanggan untuk promosi, pengingat, atau notifikasi
+                    transaksi.
+                </p>
+            </div>
+            <!-- Fitur 5 -->
+            <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                <div
+                    class="text-4xl bg-cyan-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-cyan-600 font-bold">
+                    05</div>
+                <h3 class="text-2xl font-bold mb-3 text-blue-900">Multi-Platform</h3>
+                <p class="text-gray-600">
+                    Hubungkan chatbot Anda dengan berbagai platform seperti Telegram, Line, dan
+                    Messenger.
+                </p>
+            </div>
+            <!-- Fitur 6 -->
+            <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                <div
+                    class="text-4xl bg-orange-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-orange-600 font-bold">
+                    06</div>
+                <h3 class="text-2xl font-bold mb-3 text-blue-900">Review</h3>
+                <p class="text-gray-600">
+                    Dapatkan laporan performa otomatis dan insight pelanggan untuk meningkatkan layanan
+                    Anda.
+                </p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- INTEGRASI -->
+    <section id="integrasi" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-display font-bold mb-16 text-center">
+                <span class="gradient-text">INTEGRASI</span> LUAS
+            </h2>
+
+            <!-- WhatsApp -->
+            <div
+                class="flex flex-col md:flex-row items-center gap-12 mb-20 bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4 text-green-600 flex items-center gap-3">
+                        <span class="material-icons">chat</span> WhatsApp
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Gunakan ZIFrameBot untuk berinteraksi langsung dengan pelanggan melalui WhatsApp
+                        secara cepat
+                        dan efisien. Dukung otomatisasi reply dan broadcast.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="img/whatsappBotPic.png" alt="WhatsApp Bot"
+                        class="rounded-xl shadow-lg w-full object-cover h-64 md:h-80">
+                </div>
+            </div>
+
+            <!-- Website -->
+            <div
+                class="flex flex-col md:flex-row-reverse items-center gap-12 mb-20 bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4 text-blue-600 flex items-center gap-3">
+                        <span class="material-icons">language</span> Website
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Integrasikan chatbot langsung ke situs web Anda untuk menjawab pertanyaan pengunjung
+                        24/7.
+                        Widget ringan dan dapat disesuaikan dengan brand Anda.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="img/webBotPic.png" alt="Web Bot"
+                        class="rounded-xl shadow-lg w-full object-cover h-64 md:h-80">
+                </div>
+            </div>
+
+            <!-- Aplikasi -->
+            <div
+                class="flex flex-col md:flex-row items-center gap-12 bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4 text-purple-600 flex items-center gap-3">
+                        <span class="material-icons">smartphone</span> Aplikasi Mobile
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Tambahkan fitur chatbot ke aplikasi mobile Anda (Android/iOS) agar pelanggan selalu
+                        mendapatkan
+                        bantuan real-time di mana saja.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="img/e-commBotPic.png" alt="App Bot"
+                        class="rounded-xl shadow-lg w-full object-cover h-64 md:h-80">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAKET -->
+    <section id="paket" class="py-20 px-6 bg-slate-50">
+    <div class="container mx-auto max-w-6xl text-center">
+        <h2 class="text-4xl font-display font-bold mb-6">PILIHAN <span class="gradient-text">PAKET</span></h2>
+        <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            Anda bisa mendapatkan layanan ZIFrameBot mulai dari paket Starter hingga Enterprise sesuai
+            kebutuhan bisnis Anda.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 card-hover flex flex-col justify-between h-full">
+                <div>
+                    <h5 class="text-2xl font-bold mb-4 text-gray-800">Starter</h5>
+                    <h3 class="text-4xl font-bold mb-6 text-blue-600">Rp99.000<span class="text-base text-gray-500 font-normal">/bulan</span></h3>
+                    <ul class="space-y-4 text-left text-gray-600 mb-8 max-w-xs mx-auto">
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> 500 chat/bulan</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> 1 Integrasi Platform</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Support Email</li>
+                    </ul>
+                </div>
+                <button onclick="openModal('Starter', 'Rp99.000')"
+                    class="w-full py-3 rounded-lg font-bold border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">
+                    Pilih Paket
+                </button>
+            </div>
+
+            <div class="bg-gray-900 text-white p-8 rounded-2xl shadow-xl border border-purple-500 card-hover flex flex-col justify-between h-full relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gradient-to-l from-purple-600 to-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                    POPULAR</div>
+                <div>
+                    <h5 class="text-2xl font-bold mb-4">Pro</h5>
+                    <h3 class="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                        Rp199.000<span class="text-base text-gray-400 font-normal">/bulan</span></h3>
+                    <ul class="space-y-4 text-left text-gray-300 mb-8 max-w-xs mx-auto">
+                        <li class="flex items-center gap-2"><span class="text-blue-400 font-bold">✓</span> 2000 chat/bulan</li>
+                        <li class="flex items-center gap-2"><span class="text-blue-400 font-bold">✓</span> Multi Platform</li>
+                        <li class="flex items-center gap-2"><span class="text-blue-400 font-bold">✓</span> Support 24 Jam</li>
+                    </ul>
+                </div>
+                <button onclick="openModal('Pro', 'Rp199.000')"
+                    class="w-full py-3 rounded-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all">
+                    Pilih Paket
+                </button>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 card-hover flex flex-col justify-between h-full">
+                <div>
+                    <h5 class="text-2xl font-bold mb-4 text-gray-800">Enterprise</h5>
+                    <h3 class="text-4xl font-bold mb-6 text-purple-600">Kustom</h3>
+                    <ul class="space-y-4 text-left text-gray-600 mb-8 max-w-xs mx-auto">
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Chat tanpa batas</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Integrasi penuh API</li>
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Dedicated Support</li>
+                    </ul>
+                </div>
+                    <a href="contact.html"
+                        class="block text-center w-full py-3 rounded-lg font-bold border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-all">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="paymentModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal()"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                
+                <div class="relative transform overflow-hidden rounded-xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-2xl border border-gray-100">
+                    
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Formulir Pembayaran</h3>
+                            <p class="text-sm text-gray-500">Paket: <span id="modalPlanName" class="font-bold text-blue-600">Starter</span></p>
+                        </div>
+                        <button onclick="closeModal()" class="text-gray-400 hover:text-red-500 transition-colors">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="px-6 py-6">
+                        <form id="paymentForm" class="space-y-5">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap</label>
+                                    <input type="text" id="name" oninput="clearError(this)" placeholder="Nama Anda" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="email" oninput="clearError(this)" placeholder="email@gmail.com" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="paymentMethod" class="block text-sm font-semibold text-gray-700 mb-1">Metode Pembayaran</label>
+                                <select id="paymentMethod" onchange="checkPaymentMethod(); clearError(this)" class="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all cursor-pointer">
+                                    <option value="">Pilih Metode Pembayaran</option>
+                                    <option value="bca">Transfer Bank BCA</option>
+                                    <option value="qris">QRIS (Scan QR)</option>
+                                </select>
+                            </div>
+
+                            <div id="bcaArea" class="hidden mt-4 animate-fade-in">
+                                <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 flex flex-col md:flex-row items-center justify-between gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-500 font-medium">Bank BCA</p>
+                                        <h4 class="text-2xl font-mono font-bold text-gray-800 tracking-wider mt-1 select-all">8830-1234-5678</h4>
+                                        <p class="text-sm text-gray-600 mt-1">a.n <span class="font-bold">PT ZIFrameBot</span></p>
+                                    </div>
+                                    <div class="bg-blue-100 text-blue-700 px-3 py-1 rounded text-xs font-bold uppercase tracking-wide">
+                                        Cek Otomatis
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-2 text-center">*Silakan transfer sesuai nominal tagihan</p>
+                            </div>
+
+                            <div id="qrisArea" class="hidden mt-4 animate-fade-in">
+                                <div class="text-center p-4 border-2 border-dashed border-blue-200 rounded-xl bg-blue-50">
+                                    <p class="text-sm font-bold text-gray-800 mb-3">Scan Kode QRIS</p>
+                                    <img src="images/team/Qris.png" 
+                                        alt="QRIS Code" 
+                                        class="w-48 h-48 mx-auto object-contain bg-white p-2 rounded shadow-sm">
+                                    <p class="text-xs text-gray-500 mt-2">Mendukung Gopay, OVO, Dana, ShopeePay, & All Mobile Banking</p>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div id="errorAlert" class="hidden mx-6 mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-center gap-2 text-sm">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                        <span>Mohon lengkapi <strong>Nama</strong>, <strong>Email</strong>, dan pilih <strong>Metode Pembayaran</strong>.</span>
+                    </div>
+
+                    <div class="bg-gray-50 px-6 py-4 flex flex-row-reverse gap-3 border-t border-gray-100">
+                        <button type="button" onclick="processPayment()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-all">
+                            Bayar <span id="modalPrice">Rp99.000</span>
+                        </button>
+                        <button type="button" onclick="closeModal()" class="w-full sm:w-auto bg-white border border-gray-300 text-gray-700 font-bold py-2 px-6 rounded-lg hover:bg-gray-100 transition-all">
+                            Batal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center">
+                
+                <div class="relative transform overflow-hidden rounded-xl bg-white text-center shadow-2xl transition-all sm:w-full sm:max-w-md p-6">
+                    
+                    <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-5 animate-bounce">
+                        <svg class="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                        </svg>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Pembayaran Terkirim!</h3>
+                    <p class="text-sm text-gray-500 mb-6">
+                        Terima kasih telah melakukan pembayaran. Sistem kami sedang melakukan verifikasi otomatis. Mohon tunggu notifikasi selanjutnya via Email atau WhatsApp.
+                    </p>
+
+                    <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-3 mb-6 text-sm text-yellow-800">
+                        <span class="font-bold">Status:</span> Menunggu Verifikasi Admin...
+                    </div>
+
+                    <button type="button" onclick="closeSuccessModal()" class="w-full justify-center rounded-lg bg-blue-600 px-3 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-blue-500 outline-none">
+                        Mengerti, Tutup Halaman Ini
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-6 bg-blue-900 text-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-4 gap-4">
+                <!-- Brand (Spans 2 columns) -->
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-lg font-bold mb-2"
+                        style="background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </h3>
+                    <p class="text-blue-200 text-sm mb-3 leading-relaxed max-w-sm">
+                        Solusi chatbot cerdas berbasis AI untuk meningkatkan customer experience dan efisiensi bisnis
+                        Anda.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">facebook</span></a>
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">flutter_dash</span></a>
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors"><span
+                                class="material-icons text-lg">photo_camera</span></a>
+                    </div>
+                </div>
+
+                <!-- Produk -->
+                <div>
+                    <h5 class="font-bold mb-2 text-white">Produk</h5>
+                    <ul class="space-y-1 text-sm text-blue-200">
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a>
+                        </li>
+                        <li><a href="chat.html" class="hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">Dokumentasi</a>
+                        </li>
+                        <li><a href="index.html#paket" class="hover:text-white transition-colors">Harga</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Perusahaan -->
+                <div>
+                    <h5 class="font-bold mb-2 text-white">Perusahaan</h5>
+                    <ul class="space-y-1 text-sm text-blue-200">
+                        <li><a href="about.html" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-800 mt-6 pt-4 text-center">
+                <p class="text-blue-300 text-xs">
+                    &copy; 2025 ZIFrameBot. All rights reserved. Made with ❤️ in Indonesia
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openModal(planName, planPrice) {
+            document.getElementById('modalPlanName').innerText = planName;
+            document.getElementById('modalPrice').innerText = planPrice;
+            
+            // Reset state error saat dibuka
+            document.getElementById('errorAlert').classList.add('hidden');
+            resetInputStyles();
+            
+            document.getElementById('paymentModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('qrisArea').classList.add('hidden');
+                document.getElementById('bcaArea').classList.add('hidden');
+                document.getElementById('paymentMethod').value = "";
+                document.getElementById('errorAlert').classList.add('hidden');
+                resetInputStyles();
+            }, 200);
+        }
+
+        function checkPaymentMethod() {
+            const method = document.getElementById('paymentMethod').value;
+            const qrisArea = document.getElementById('qrisArea');
+            const bcaArea = document.getElementById('bcaArea');
+
+            qrisArea.classList.add('hidden');
+            bcaArea.classList.add('hidden');
+
+            if (method === 'qris') {
+                qrisArea.classList.remove('hidden');
+            } else if (method === 'bca') {
+                bcaArea.classList.remove('hidden');
+            }
+        }
+
+        // --- LOGIC VALIDASI & PROSES BAYAR ---
+
+        function processPayment() {
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const methodInput = document.getElementById('paymentMethod');
+            const errorAlert = document.getElementById('errorAlert');
+
+            let isValid = true;
+
+            // Reset style dulu
+            resetInputStyles();
+            errorAlert.classList.add('hidden');
+
+            // Validasi Nama
+            if (!nameInput.value.trim()) {
+                nameInput.classList.add('border-red-500', 'bg-red-50');
+                isValid = false;
+            }
+
+            // Validasi Email
+            if (!emailInput.value.trim()) {
+                emailInput.classList.add('border-red-500', 'bg-red-50');
+                isValid = false;
+            }
+
+            // Validasi Metode
+            if (!methodInput.value) {
+                methodInput.classList.add('border-red-500', 'bg-red-50');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                // JIKA GAGAL: Tampilkan pesan error di form (bukan alert)
+                errorAlert.classList.remove('hidden');
+            } else {
+                // JIKA SUKSES: 
+                // 1. Tutup modal form
+                closeModal();
+                // 2. Tampilkan modal sukses
+                setTimeout(() => {
+                    openSuccessModal();
+                }, 300); // Delay sedikit agar transisi halus
+            }
+        }
+
+        // Fungsi Helper: Hapus border merah saat user mulai mengetik
+        function clearError(element) {
+            element.classList.remove('border-red-500', 'bg-red-50');
+            // Sembunyikan pesan error utama jika user sudah mulai memperbaiki
+            document.getElementById('errorAlert').classList.add('hidden');
+        }
+
+        function resetInputStyles() {
+            ['name', 'email', 'paymentMethod'].forEach(id => {
+                document.getElementById(id).classList.remove('border-red-500', 'bg-red-50');
+            });
+        }
+
+        function openSuccessModal() {
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+    </script>
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
