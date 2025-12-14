@@ -1,0 +1,307 @@
+/* Custom Scrollbar for Chat Area */
+.chat-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2563eb 0%, #8b5cf6 100%);
+  border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8b5cf6 0%, #2563eb 100%);
+}
+
+/* Glassmorphism Effect for Light Theme */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.glass-effect-dark {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typing Indicator Animation */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+  animation: typing 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Pulse Animation for CTA Buttons */
+@keyframes pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+/* Gradient Border Animation */
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-border {
+  background: linear-gradient(90deg, #2563eb, #8b5cf6, #a78bfa, #2563eb);
+  background-size: 300% 300%;
+  animation: gradientBorder 3s ease infinite;
+}
+
+/* Chat Message Bubble Styles */
+.message-user {
+  background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+  color: white;
+  border-radius: 18px 18px 4px 18px;
+  padding: 12px 16px;
+  max-width: 70%;
+  margin-left: auto;
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+}
+
+.message-bot {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1f2937;
+  border-radius: 18px 18px 18px 4px;
+  padding: 12px 16px;
+  max-width: 70%;
+  margin-right: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2), 0 20px 40px rgba(139, 92, 246, 0.2);
+}
+
+/* Button Gradient Hover */
+.btn-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #2563eb 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3), 0 10px 20px rgba(139, 92, 246, 0.3);
+}
+
+/* White Button Styling */
+.btn-white {
+  background: white;
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn-white:hover {
+  background: white;
+  color: #7c3aed;
+  border-color: rgba(124, 58, 237, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+
+  .message-user,
+  .message-bot {
+    max-width: 85%;
+  }
+}
+
+/* Bubble Chat Animations */
+.chat-bubble {
+  position: absolute;
+  background: #f7f7f7;
+  border-radius: 30px;
+  padding: 15px 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  color: #777;
+  animation: popUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.5);
+  z-index: 10;
+}
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Bubble Positions - Around Hero Content */
+.bubble1 {
+  top: 13%;
+  left: 2%;
+  animation-delay: 0.2s;
+}
+
+.bubble2 {
+  top: 45%;
+  left: 15%;
+  animation-delay: 0.5s;
+}
+
+.bubble3 {
+  top: 65%;
+  left: 5%;
+  animation-delay: 0.8s;
+}
+
+.bubble4 {
+  top: 13%;
+  right: 2%;
+  animation-delay: 0.6s;
+}
+
+.bubble5 {
+  top: 45%;
+  right: 15%;
+  animation-delay: 0.3s;
+}
+
+.bubble6 {
+  top: 65%;
+  right: 5%;
+  animation-delay: 0.7s;
+}
+
+/* Chat Avatars - Around Hero Content */
+.chat-avatar {
+  display: inline-block;
+  position: absolute;
+  z-index: 9;
+}
+
+.chat-avatar img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 20%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.avatar1 {
+  top: 25%;
+  left: 17%;
+}
+
+.avatar2 {
+  top: 50%;
+  left: 8%;
+}
+
+.avatar3 {
+  top: 60%;
+  left: 25%;
+}
+
+.avatar4 {
+  top: 25%;
+  right: 17%;
+}
+
+.avatar5 {
+  top: 50%;
+  right: 8%;
+}
+
+.avatar6 {
+  top: 60%;
+  right: 25%;
+}
+
+/* Mobile adjustments for bubbles/avatars */
+@media (max-width: 1270px) {
+
+  .chat-bubble,
+  .chat-avatar {
+    display: none;
+  }
+}

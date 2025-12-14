@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Dokumentasi ZiframeBot - Panduan integrasi, konfigurasi rules, dan best practices.">
+    <title>Documentation - ZiframeBot</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-gray-900 font-sans">
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Brand -->
+                <div class="brand">
+                    <a href="index.html" class="text-2xl font-bold flex items-center gap-2"
+                        style="background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </a>
+                </div>
+
+                <!-- Desktop Menu (Visible on LG and up - 1024px+) -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="index.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors border-b-2 border-transparent hover:border-purple-600">Home</a>
+                    <a href="features.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Features</a>
+                    <a href="chat.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Demo</a>
+                    <a href="smartbook.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Produk</a>
+                    <a href="docs.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">API</a>
+
+                    <!-- Company Dropdown -->
+                    <div class="relative group">
+                        <button id="company-button"
+                            class="text-blue-900 hover:text-purple-600 font-medium transition-colors inline-flex items-center gap-1 focus:outline-none">
+                            Company
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <div id="company-menu"
+                            class="absolute left-1/2 transform -translate-x-1/2 mt-3 w-40 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden transition-all duration-200 z-50">
+                            <a href="about.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg">About</a>
+                            <a href="contact.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-b-lg">Contact</a>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <a href="order.html"
+                        class="px-6 py-2 rounded-full font-semibold transition-all btn-gradient text-white shadow-md hover:shadow-lg">
+                        Berlangganan
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button (Visible up to LG - below 1024px) -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+                <a href="index.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded font-semibold">Home</a>
+                <a href="features.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Features</a>
+                <a href="chat.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Demo</a>
+                <a href="smartbook.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Produk</a>
+                <a href="docs.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">API</a>
+
+                <!-- Company Section in Mobile -->
+                <div class="py-2 mt-2 border-t border-gray-100 pt-2">
+                    <div class="font-semibold text-blue-900 mb-2 text-sm uppercase px-2">Company</div>
+                    <a href="about.html"
+                        class="block py-1 pl-6 pr-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded text-sm">About</a>
+                    <a href="contact.html"
+                        class="block py-1 pl-6 pr-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded text-sm">Contact</a>
+                </div>
+
+                <!-- CTA Button in Mobile -->
+                <a href="order.html"
+                    class="block py-3 mt-4 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold shadow-lg hover:shadow-xl transition-all">
+                    Berlangganan
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 fade-in">
+                <span class="gradient-text">Dokumentasi</span>
+            </h1>
+            <p class="text-xl text-gray-700 fade-in">
+                Panduan lengkap integrasi dan konfigurasi ZiframeBot
+            </p>
+        </div>
+    </section>
+
+    <!-- Documentation Content -->
+    <section class="py-12 px-6">
+        <div class="container mx-auto max-w-4xl">
+
+            <!-- Getting Started -->
+            <div class="glass-effect p-8 rounded-2xl mb-8">
+                <h2 class="text-3xl font-display font-bold mb-6 flex items-center gap-3">
+                    <span><span class="material-icons">rocket_launch</span></span> Getting Started
+                </h2>
+                <p class="text-gray-700 mb-6">
+                    ZiframeBot adalah chatbot berbasis rule-based yang mudah diintegrasikan ke website Anda.
+                    Tidak memerlukan backend atau database, cukup tambahkan script dan konfigurasi rules dalam format
+                    JSON.
+                </p>
+
+                <div class="bg-blue-900/80 border border-blue-500/50 rounded-lg p-4 mb-4">
+                    <p class="text-sm text-white flex items-start gap-2">
+                        <span class="material-icons text-yellow-300">lightbulb</span>
+                        <span><strong>Catatan:</strong> ZiframeBot bekerja sepenuhnya di client-side menggunakan
+                            JavaScript vanilla. Cocok untuk FAQ, customer support, dan lead generation.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Integration Guide -->
+            <div class="glass-effect p-8 rounded-2xl mb-8">
+                <h2 class="text-3xl font-display font-bold mb-6 flex items-center gap-3">
+                    <span><span class="material-icons">power</span></span> Integration Guide
+                </h2>
+
+                <h3 class="text-xl font-bold mb-4">Langkah 1: Tambahkan Script</h3>
+                <p class="text-gray-700 mb-4">
+                    Tambahkan script ZiframeBot ke dalam tag <code
+                        class="bg-gray-800 px-2 py-1 rounded text-blue-300 font-semibold">&lt;head&gt;</code> atau
+                    sebelum closing
+                    tag <code class="bg-gray-800 px-2 py-1 rounded text-blue-300 font-semibold">&lt;/body&gt;</code>:
+                </p>
+
+                <div class="bg-gray-900 rounded-lg p-6 mb-6 overflow-x-auto">
+                    <pre class="text-sm text-green-300 font-mono"><code>&lt;!-- Tailwind CSS (optional for styling) --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+
+&lt;!-- ZiframeBot CSS --&gt;
+&lt;link rel="stylesheet" href="https://ziframebot.com/style.css"&gt;
+
+&lt;!-- ZiframeBot Script --&gt;
+&lt;script src="https://ziframebot.com/script.js"&gt;&lt;/script&gt;</code></pre>
+                </div>
+
+                <h3 class="text-xl font-bold mb-4">Langkah 2: Tambahkan HTML Container</h3>
+                <p class="text-gray-700 mb-4">
+                    Buat container untuk chatbot di halaman Anda:
+                </p>
+
+                <div class="bg-gray-900 rounded-lg p-6 mb-6 overflow-x-auto">
+                    <pre class="text-sm text-green-300 font-mono"><code>&lt;div id="chat-messages" class="chat-container"&gt;&lt;/div&gt;
+&lt;textarea id="user-input" placeholder="Type your message..."&gt;&lt;/textarea&gt;
+&lt;button id="send-button"&gt;Send&lt;/button&gt;
+&lt;button id="clear-chat"&gt;Clear Chat&lt;/button&gt;</code></pre>
+                </div>
+
+                <h3 class="text-xl font-bold mb-4">Langkah 3: Konfigurasi Rules</h3>
+                <p class="text-gray-700 mb-4">
+                    Buat file <code class="bg-gray-800 px-2 py-1 rounded text-blue-300 font-semibold">rules.json</code>
+                    di folder
+                    yang sama dengan script:
+                </p>
+
+                <div class="bg-gray-900 rounded-lg p-6 mb-6 overflow-x-auto">
+                    <pre class="text-sm text-green-300 font-mono"><code>{
+  "rules": [
+    {
+      "keywords": ["halo", "hai", "hello"],
+      "response": "Halo! Ada yang bisa saya bantu?"
+    },
+    {
+      "keywords": ["produk", "layanan"],
+      "response": "Kami menyediakan berbagai produk dan layanan..."
+    }
+  ],
+  "fallback": "Maaf, saya belum memahami pertanyaan Anda."
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Rules Configuration -->
+            <div class="glass-effect p-8 rounded-2xl mb-8">
+                <h2 class="text-3xl font-display font-bold mb-6 flex items-center gap-3">
+                    <span><span class="material-icons">settings</span></span> Rules Configuration
+                </h2>
+
+                <h3 class="text-xl font-bold mb-4">Struktur JSON Rules</h3>
+                <p class="text-gray-700 mb-4">
+                    File <code class="bg-gray-800 px-2 py-1 rounded text-blue-300 font-semibold">rules.json</code>
+                    memiliki struktur
+                    sebagai berikut:
+                </p>
+
+                <div class="space-y-4 mb-6">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4">
+                        <h4 class="font-bold mb-2 text-blue-400">rules (array)</h4>
+                        <p class="text-sm text-gray-700">
+                            Array yang berisi objek-objek rule. Setiap rule memiliki <code
+                                class="bg-black/30 px-1 rounded">keywords</code> dan <code
+                                class="bg-black/30 px-1 rounded">response</code>.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4">
+                        <h4 class="font-bold mb-2 text-blue-400">keywords (array of strings)</h4>
+                        <p class="text-sm text-gray-700">
+                            Kata kunci yang akan dicocokkan dengan input user. Matching bersifat case-insensitive dan
+                            menggunakan <code class="bg-black/30 px-1 rounded">includes()</code>.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4">
+                        <h4 class="font-bold mb-2 text-blue-400">response (string)</h4>
+                        <p class="text-sm text-gray-700">
+                            Respons yang akan diberikan jika salah satu keyword cocok. Mendukung line breaks dengan
+                            <code class="bg-black/30 px-1 rounded">\n</code>.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4">
+                        <h4 class="font-bold mb-2 text-blue-400">fallback (string)</h4>
+                        <p class="text-sm text-gray-700">
+                            Respons default yang diberikan jika tidak ada keyword yang cocok.
+                        </p>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold mb-4">Best Practices</h3>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 mt-1"><span class="material-icons text-sm">check</span></span>
+                        <span>Gunakan variasi keyword untuk satu topik (contoh: "halo", "hai", "hello")</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 mt-1"><span class="material-icons text-sm">check</span></span>
+                        <span>Buat respons yang jelas dan informatif</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 mt-1"><span class="material-icons text-sm">check</span></span>
+                        <span>Urutkan rules dari yang paling spesifik ke yang paling umum</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 mt-1"><span class="material-icons text-sm">check</span></span>
+                        <span>Gunakan fallback response yang helpful dan mengarahkan user</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-blue-500 mt-1"><span class="material-icons text-sm">check</span></span>
+                        <span>Test semua keyword secara berkala</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- How It Works -->
+            <div class="glass-effect p-8 rounded-2xl mb-8">
+                <h2 class="text-3xl font-display font-bold mb-6 flex items-center gap-3">
+                    <span><span class="material-icons">sync</span></span> How It Works
+                </h2>
+
+                <p class="text-gray-700 mb-6">
+                    Berikut adalah alur kerja internal ZiframeBot:
+                </p>
+
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 mb-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-white">
+                                1</div>
+                            <div>
+                                <h4 class="font-bold mb-1">User Input</h4>
+                                <p class="text-sm text-gray-700">User mengetik pesan dan menekan tombol kirim</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-white">
+                                2</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Text Normalization</h4>
+                                <p class="text-sm text-gray-700">Input di-normalize (lowercase, trim whitespace)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-white">
+                                3</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Keyword Matching</h4>
+                                <p class="text-sm text-gray-700">Sistem mencocokkan input dengan keywords di rules.json
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-white">
+                                4</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Response Generation</h4>
+                                <p class="text-sm text-gray-700">Jika match ditemukan, return response. Jika tidak,
+                                    return fallback</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center font-bold flex-shrink-0 text-white">
+                                5</div>
+                            <div>
+                                <h4 class="font-bold mb-1">Display & Save</h4>
+                                <p class="text-sm text-gray-700">Response ditampilkan di UI dan disimpan ke localStorage
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center shadow-sm">
+                    <p class="text-sm text-blue-900 font-mono font-bold">
+                        User Input → Normalize → Match Keywords → Generate Response → Display
+                    </p>
+                </div>
+            </div>
+
+            <!-- Advanced Features -->
+            <div class="glass-effect p-8 rounded-2xl mb-8">
+                <h2 class="text-3xl font-display font-bold mb-6 flex items-center gap-3">
+                    <span><span class="material-icons">gps_fixed</span></span> Advanced Features
+                </h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">LocalStorage Integration</h3>
+                        <p class="text-gray-700 mb-2">
+                            Chat history otomatis tersimpan di browser menggunakan localStorage. Data tetap ada meskipun
+                            halaman di-refresh.
+                        </p>
+                        <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+                            <code
+                                class="text-sm font-mono text-blue-400 break-all">localStorage.setItem('ziframebot_history', JSON.stringify(chatHistory))</code>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Typing Indicator</h3>
+                        <p class="text-gray-700 mb-2">
+                            Animasi typing indicator memberikan feedback visual saat bot memproses pesan.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Auto Scroll</h3>
+                        <p class="text-gray-700 mb-2">
+                            Chat container otomatis scroll ke bawah saat ada pesan baru dengan smooth animation.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Responsive Design</h3>
+                        <p class="text-gray-700 mb-2">
+                            UI otomatis menyesuaikan dengan ukuran layar (mobile, tablet, desktop).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center glass-effect p-8 rounded-2xl">
+                <h3 class="text-2xl font-bold mb-4">Siap Mencoba?</h3>
+                <p class="text-gray-700 mb-6">
+                    Test chatbot kami secara langsung atau hubungi tim untuk bantuan integrasi
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="chat.html"
+                        class="btn-gradient text-white px-8 py-3 rounded-full font-semibold inline-flex items-center justify-center gap-2">
+                        <span class="material-icons">rocket_launch</span> Coba Demo
+                    </a>
+                    <a href="order.html"
+                        class="btn-white px-8 py-3 rounded-full font-semibold inline-flex items-center justify-center gap-2">
+                        <span class="material-icons">play_arrow</span> Mulai Sekarang
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-blue-900 text-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-3"
+                        style="background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </h3>
+                    <p class="text-blue-200 text-sm mb-4 leading-relaxed max-w-md">
+                        Solusi chatbot cerdas berbasis AI untuk meningkatkan customer experience dan efisiensi bisnis
+                        Anda.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/ziframebot"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <span class="material-icons text-lg">facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/ziframebot"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <span class="material-icons text-lg">photo_camera</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@ziframebot" target="_blank"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.96 2c.14 1.82 1.02 3.44 2.48 4.58 1.16.92 2.58 1.46 4.1 1.6v3.03c-1.88-.06-3.64-.63-5.17-1.62v6.26c0 3.18-2.58 5.75-5.75 5.75S2.87 19.03 2.87 15.85c0-3.18 2.58-5.75 5.75-5.75.42 0 .82.05 1.21.14v3.14a2.63 2.63 0 0 0-1.21-.29 2.76 2.76 0 1 0 2.76 2.76V2h2.58z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Produk -->
+                <div>
+                    <h5 class="font-bold mb-4 text-white text-lg">Produk</h5>
+                    <ul class="space-y-2 text-sm text-blue-200">
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="chat.html" class="hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="smartbook.html" class="hover:text-white transition-colors">SmartBook</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">Dokumentasi</a></li>
+                        <li><a href="order.html" class="hover:text-white transition-colors">Berlangganan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Perusahaan -->
+                <div>
+                    <h5 class="font-bold mb-4 text-white text-lg">Perusahaan</h5>
+                    <ul class="space-y-2 text-sm text-blue-200">
+                        <li><a href="about.html" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-8 pt-6 text-center">
+                <p class="text-blue-200 text-sm">
+                    &copy; 2025 ZIFrameBot. All rights reserved. Made with ❤️ in Indonesia
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Company dropdown for desktop
+        const companyButton = document.getElementById('company-button');
+        const companyMenu = document.getElementById('company-menu');
+
+        if (companyButton && companyMenu) {
+            // Toggle dropdown on click
+            companyButton.addEventListener('click', function (event) {
+                event.stopPropagation();
+                companyMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!companyButton.contains(event.target) && !companyMenu.contains(event.target)) {
+                    if (!companyMenu.classList.contains('hidden')) {
+                        companyMenu.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Prevent dropdown from closing when clicking inside it
+            companyMenu.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        }
+    </script>
+</body>
+
+</html>

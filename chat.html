@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Demo chatbot ZiframeBot - Coba langsung chatbot cerdas kami dan rasakan pengalaman interaktif.">
+    <title>Demo Chatbot - ZiframeBot</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-gray-900 font-sans">
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Brand -->
+                <div class="brand">
+                    <a href="index.html" class="text-2xl font-bold flex items-center gap-2"
+                        style="background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </a>
+                </div>
+
+                <!-- Desktop Menu (Visible on LG and up - 1024px+) -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="index.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors border-b-2 border-transparent hover:border-purple-600">Home</a>
+                    <a href="features.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Features</a>
+                    <a href="chat.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Demo</a>
+                    <a href="smartbook.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Produk</a>
+                    <a href="docs.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">API</a>
+
+                    <!-- Company Dropdown -->
+                    <div class="relative group">
+                        <button id="company-button"
+                            class="text-blue-900 hover:text-purple-600 font-medium transition-colors inline-flex items-center gap-1 focus:outline-none">
+                            Company
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <div id="company-menu"
+                            class="absolute left-1/2 transform -translate-x-1/2 mt-3 w-40 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden transition-all duration-200 z-50">
+                            <a href="about.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg">About</a>
+                            <a href="contact.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-b-lg">Contact</a>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <a href="order.html"
+                        class="px-6 py-2 rounded-full font-semibold transition-all btn-gradient text-white shadow-md hover:shadow-lg">
+                        Berlangganan
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button (Visible up to LG - below 1024px) -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+                <a href="index.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded font-semibold">Home</a>
+                <a href="features.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Features</a>
+                <a href="chat.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Demo</a>
+                <a href="smartbook.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Produk</a>
+                <a href="docs.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">API</a>
+
+                <!-- Company Section in Mobile -->
+                <div class="py-2 mt-2 border-t border-gray-100 pt-2">
+                    <div class="font-semibold text-blue-900 mb-2 text-sm uppercase px-2">Company</div>
+                    <a href="about.html"
+                        class="block py-1 pl-6 pr-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded text-sm">About</a>
+                    <a href="contact.html"
+                        class="block py-1 pl-6 pr-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded text-sm">Contact</a>
+                </div>
+
+                <!-- CTA Button in Mobile -->
+                <a href="order.html"
+                    class="block py-3 mt-4 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold shadow-lg hover:shadow-xl transition-all">
+                    Berlangganan
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Chat Section -->
+    <section class="pt-24 pb-8 px-4 min-h-screen">
+        <div class="container mx-auto max-w-6xl h-full">
+            <!-- Page Header - Always on top -->
+            <div class="mb-6">
+                <div class="glass-effect p-6 rounded-2xl fade-in text-center">
+                    <h1 class="text-5xl md:text-6xl font-display font-bold mb-2">
+                        Demo <span class="gradient-text">Chatbot</span>
+                    </h1>
+                    <p class="text-gray-700 text-sm md:text-base">
+                        Coba langsung chatbot kami dan rasakan pengalaman interaktif!
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-6 h-full">
+
+                <!-- Sidebar - Tips & Info -->
+                <div class="lg:col-span-1 space-y-6 order-2 lg:order-none">
+
+                    <!-- Tips -->
+                    <div class="glass-effect p-6 rounded-2xl fade-in">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <span class="material-icons">lightbulb</span> Tips Penggunaan
+                        </h3>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-1">•</span>
+                                <span>Ketik pertanyaan Anda di kolom chat</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-1">•</span>
+                                <span>Tekan Enter atau klik tombol kirim</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-1">•</span>
+                                <span>Chat history tersimpan otomatis</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-blue-500 mt-1">•</span>
+                                <span>Klik "Clear Chat" untuk reset</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Example Questions -->
+                    <div class="glass-effect p-6 rounded-2xl fade-in">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <span class="material-icons">gps_fixed</span> Contoh Pertanyaan
+                        </h3>
+                        <div class="space-y-2">
+                            <button onclick="sendExampleQuestion('Halo')"
+                                class="w-full text-left px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm transition-all">
+                                "Halo"
+                            </button>
+                            <button onclick="sendExampleQuestion('Apa itu chatbot?')"
+                                class="w-full text-left px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm transition-all">
+                                "Apa itu chatbot?"
+                            </button>
+                            <button onclick="sendExampleQuestion('Fitur apa saja yang ada?')"
+                                class="w-full text-left px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm transition-all">
+                                "Fitur apa saja yang ada?"
+                            </button>
+                            <button onclick="sendExampleQuestion('Bagaimana cara integrasi?')"
+                                class="w-full text-left px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm transition-all">
+                                "Bagaimana cara integrasi?"
+                            </button>
+                            <button onclick="sendExampleQuestion('Berapa harganya?')"
+                                class="w-full text-left px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm transition-all">
+                                "Berapa harganya?"
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Chat Container -->
+                <div class="lg:col-span-2 order-1 lg:order-none">
+                    <div class="glass-effect rounded-2xl overflow-hidden h-[calc(100vh-120px)] flex flex-col fade-in">
+
+                        <!-- Chat Header -->
+                        <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl">
+                                        <span class="material-icons">smart_toy</span>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-xl font-bold text-white">ZiframeBot</h2>
+                                        <p class="text-sm text-white/80">Online • Ready to help</p>
+                                    </div>
+                                </div>
+                                <button id="clear-chat"
+                                    class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-medium transition-all flex items-center gap-2 text-white">
+                                    <span class="material-icons text-lg">delete</span>
+                                    <span>Clear Chat</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Chat Messages Area -->
+                        <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4 chat-container">
+                        </div>
+
+                        <!-- Chat Input Area -->
+                        <div class="p-6 border-t border-white/10">
+                            <form id="chat-form" class="flex gap-3">
+                                <textarea id="user-input" placeholder="Ketik pertanyaan Anda di sini..."
+                                    class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                                    rows="1" style="max-height: 120px;"></textarea>
+                                <button id="send-button" type="submit"
+                                    class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all flex items-center gap-2">
+                                    <span>Kirim</span>
+                                    <span class="material-icons">send</span>
+                                </button>
+                            </form>
+                            <p class="text-xs text-gray-500 mt-2 flex items-center gap-1">
+                                <span class="material-icons text-sm">lightbulb</span> Tekan Enter untuk kirim,
+                                Shift+Enter untuk baris baru
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-blue-900 text-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-3"
+                        style="background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </h3>
+                    <p class="text-blue-200 text-sm mb-4 leading-relaxed max-w-md">
+                        Solusi chatbot cerdas berbasis AI untuk meningkatkan customer experience dan efisiensi bisnis
+                        Anda.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/ziframebot"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <span class="material-icons text-lg">facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/ziframebot"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <span class="material-icons text-lg">photo_camera</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@ziframebot" target="_blank"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.96 2c.14 1.82 1.02 3.44 2.48 4.58 1.16.92 2.58 1.46 4.1 1.6v3.03c-1.88-.06-3.64-.63-5.17-1.62v6.26c0 3.18-2.58 5.75-5.75 5.75S2.87 19.03 2.87 15.85c0-3.18 2.58-5.75 5.75-5.75.42 0 .82.05 1.21.14v3.14a2.63 2.63 0 0 0-1.21-.29 2.76 2.76 0 1 0 2.76 2.76V2h2.58z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Produk -->
+                <div>
+                    <h5 class="font-bold mb-4 text-white text-lg">Produk</h5>
+                    <ul class="space-y-2 text-sm text-blue-200">
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="chat.html" class="hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="smartbook.html" class="hover:text-white transition-colors">SmartBook</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">Dokumentasi</a></li>
+                        <li><a href="order.html" class="hover:text-white transition-colors">Berlangganan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Perusahaan -->
+                <div>
+                    <h5 class="font-bold mb-4 text-white text-lg">Perusahaan</h5>
+                    <ul class="space-y-2 text-sm text-blue-200">
+                        <li><a href="about.html" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-8 pt-6 text-center">
+                <p class="text-blue-200 text-sm">
+                    &copy; 2025 ZIFrameBot. All rights reserved. Made with ❤️ in Indonesia
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .hover-blue:hover {
+            color: #60a5fa !important;
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script>
+        // Example question sender
+        function sendExampleQuestion(question) {
+            const userInput = document.getElementById('user-input');
+            userInput.value = question;
+            userInput.focus();
+            // Trigger send
+            document.getElementById('send-button').click();
+        }
+
+        // Prevent form default submission
+        document.getElementById('chat-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+        });
+    </script>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Company dropdown for desktop
+        const companyButton = document.getElementById('company-button');
+        const companyMenu = document.getElementById('company-menu');
+
+        if (companyButton && companyMenu) {
+            // Toggle dropdown on click
+            companyButton.addEventListener('click', function (event) {
+                event.stopPropagation();
+                companyMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!companyButton.contains(event.target) && !companyMenu.contains(event.target)) {
+                    if (!companyMenu.classList.contains('hidden')) {
+                        companyMenu.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Prevent dropdown from closing when clicking inside it
+            companyMenu.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        }
+    </script>
+
+    <!-- Chatbot Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SmartBook - Aplikasi pembukuan pintar berbasis AI untuk UMKM dan bisnis Anda. Kelola keuangan dengan mudah menggunakan chatbot.">
+    <title>SmartBook - Pembukuan Pintar Berbasis AI | ZIFrameBot</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Outfit', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white text-gray-900 font-sans">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Brand -->
+                <div class="brand">
+                    <a href="index.html" class="text-2xl font-bold flex items-center gap-2"
+                        style="background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </a>
+                </div>
+
+                <!-- Desktop Menu (Visible on LG and up - 1024px+) -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="index.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors border-b-2 border-transparent hover:border-purple-600">Home</a>
+                    <a href="features.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Features</a>
+                    <a href="chat.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Demo</a>
+                    <a href="smartbook.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">Produk</a>
+                    <a href="docs.html"
+                        class="text-blue-900 hover:text-purple-600 font-medium transition-colors">API</a>
+
+                    <!-- Company Dropdown -->
+                    <div class="relative group">
+                        <button id="company-button"
+                            class="text-blue-900 hover:text-purple-600 font-medium transition-colors inline-flex items-center gap-1 focus:outline-none">
+                            Company
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <div id="company-menu"
+                            class="absolute left-1/2 transform -translate-x-1/2 mt-3 w-40 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden transition-all duration-200 z-50">
+                            <a href="about.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg">About</a>
+                            <a href="contact.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-b-lg">Contact</a>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <a href="order.html"
+                        class="px-6 py-2 rounded-full font-semibold transition-all btn-gradient text-white shadow-md hover:shadow-lg">
+                        Berlangganan
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button (Visible up to LG - below 1024px) -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+                <a href="index.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded font-semibold">Home</a>
+                <a href="features.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Features</a>
+                <a href="chat.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Demo</a>
+                <a href="smartbook.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">Produk</a>
+                <a href="docs.html"
+                    class="block py-2 px-2 text-blue-900 hover:text-purple-600 hover:bg-purple-50 rounded">API</a>
+
+                <!-- Company Section in Mobile -->
+                <div class="py-2 mt-2 border-t border-gray-100 pt-2">
+                    <div class="font-semibold text-blue-900 mb-2 text-sm uppercase px-2">Company</div>
+                    <a href="about.html"
+                        class="block py-1 pl-6 pr-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded text-sm">About</a>
+                    <a href="contact.html"
+                        class="block py-1 pl-6 pr-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded text-sm">Contact</a>
+                </div>
+
+                <!-- CTA Button in Mobile -->
+                <a href="order.html"
+                    class="block py-3 mt-4 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold shadow-lg hover:shadow-xl transition-all">
+                    Berlangganan
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-20 pb-32 px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="fade-in">
+                    <div class="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full">
+                        <span class="text-sm font-bold gradient-text">✨ Powered by ZiFrameBot</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
+                        <span class="gradient-text">SmartBook</span><br>
+                        Pembukuan Pintar<br>Berbasis Chatbot
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                        Kelola keuangan bisnis Anda dengan mudah menggunakan chatbot AI. Input transaksi lewat chat,
+                        scan struk dengan OCR, dan dapatkan laporan otomatis.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://app.ziframebot.web.id" target="_blank"
+                            class="btn-gradient px-10 py-5 rounded-full font-bold text-white shadow-lg shadow-blue-500/30 text-lg text-center hover:shadow-xl transition-all">
+                            SmartBook App
+                        </a>
+                        <a href="#features"
+                            class="btn-white px-10 py-5 rounded-full font-bold text-lg text-center hover:shadow-lg transition-all">
+                            Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Content - SmartBook Image (Prominent) -->
+                <div class="relative fade-in">
+                    <!-- Main Container with Glow Effect -->
+                    <div class="relative">
+                        <!-- Image Container with Enhanced Effects -->
+                        <div
+                            class="relative bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-3xl p-1 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+                            <!-- Inner White Container -->
+                            <div class="bg-white rounded-3xl p-8 relative overflow-hidden">
+                                <!-- Background Pattern -->
+                                <div class="absolute inset-0 opacity-5">
+                                    <div class="absolute inset-0"
+                                        style="background-image: radial-gradient(circle, #2563eb 1px, transparent 1px); background-size: 20px 20px;">
+                                    </div>
+                                </div>
+
+                                <!-- SmartBook Image -->
+                                <div class="relative z-10">
+                                    <img src="img/smartbook.png" alt="SmartBook - Pembukuan Pintar Berbasis AI"
+                                        class="w-full h-auto max-w-lg mx-auto drop-shadow-2xl transform hover:scale-110 transition-transform duration-500">
+                                </div>
+
+                                <!-- Glow Effect Behind Image -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 blur-3xl opacity-30 -z-10 animate-pulse">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Circles for Depth -->
+                        <div
+                            class="absolute -top-8 -right-8 w-24 h-24 bg-yellow-400 rounded-full opacity-20 animate-pulse blur-xl">
+                        </div>
+                        <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-blue-400 rounded-full opacity-20 animate-pulse blur-xl"
+                            style="animation-delay: 1s;"></div>
+                        <div class="absolute top-1/2 -right-6 w-20 h-20 bg-purple-400 rounded-full opacity-20 animate-pulse blur-xl"
+                            style="animation-delay: 0.5s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display font-bold mb-4">
+                    Fitur <span class="gradient-text">Unggulan</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    SmartBook dilengkapi dengan teknologi AI terkini untuk memudahkan pembukuan bisnis Anda
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div class="text-4xl bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="material-icons text-blue-600">chat_bubble</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Input via Chatbot</h3>
+                    <p class="text-gray-600">
+                        Catat transaksi dengan cara ngobrol biasa. AI kami akan memahami dan mencatat otomatis ke sistem
+                        pembukuan.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div class="text-4xl bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="material-icons text-purple-600">dashboard</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Dashboard Keuangan</h3>
+                    <p class="text-gray-600">
+                        Pantau kondisi keuangan bisnis Anda secara real-time dengan dashboard yang intuitif dan mudah
+                        dipahami.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div class="text-4xl bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="material-icons text-indigo-600">camera_alt</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">OCR Scan Receipt</h3>
+                    <p class="text-gray-600">
+                        Foto struk belanja dan biarkan AI membaca serta mencatat transaksi secara otomatis ke pembukuan.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div class="text-4xl bg-pink-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="material-icons text-pink-600">assessment</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Laporan Otomatis</h3>
+                    <p class="text-gray-600">
+                        Dapatkan laporan keuangan lengkap (laba rugi, arus kas) secara otomatis tanpa perlu input
+                        manual.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div class="text-4xl bg-cyan-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="material-icons text-cyan-600">inventory</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Manajemen Inventori</h3>
+                    <p class="text-gray-600">
+                        Kelola stok barang dengan mudah, tracking keluar masuk barang, dan notifikasi stok menipis.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover bg-white">
+                    <div class="text-4xl bg-orange-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="material-icons text-orange-600">security</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-900">Aman & Terenkripsi</h3>
+                    <p class="text-gray-600">
+                        Data keuangan Anda tersimpan aman dengan enkripsi tingkat bank dan backup otomatis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshot/Demo Section -->
+    <section class="py-20 px-6 bg-slate-50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display font-bold mb-4">
+                    Lihat <span class="gradient-text">SmartBook</span> Beraksi
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Interface yang intuitif dan mudah digunakan untuk semua kalangan
+                </p>
+            </div>
+
+            <!-- Placeholder for Screenshots - User will add their own -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg p-6 card-hover">
+                    <div
+                        class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl h-64 flex items-center justify-center mb-4">
+                        <div class="text-center">
+                            <img src="img/chatbot.png" alt="chatbot">
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Input Transaksi via Chat</h4>
+                    <p class="text-gray-600">Cukup ketik "Beli pulsa 50rb" dan SmartBook akan mencatatnya otomatis</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg p-6 card-hover">
+                    <div
+                        class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl h-64 flex items-center justify-center mb-4">
+                        <div class="text-center">
+                            <img src="img/dashboard.png" alt="dashboard">
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Dashboard Keuangan</h4>
+                    <p class="text-gray-600">Lihat ringkasan keuangan, grafik, dan laporan dalam satu tampilan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display font-bold mb-4">
+                    Cocok untuk <span class="gradient-text">Berbagai Bisnis</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    SmartBook dirancang untuk memudahkan pembukuan berbagai jenis usaha
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-white rounded-2xl shadow-sm card-hover">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-icons text-4xl text-blue-600">store</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">UMKM & Toko</h3>
+                    <p class="text-gray-600">
+                        Catat penjualan harian, kelola stok, dan pantau keuntungan dengan mudah
+                    </p>
+                </div>
+
+                <div class="text-center p-8 bg-white rounded-2xl shadow-sm card-hover">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-icons text-4xl text-purple-600">person</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Freelancer</h3>
+                    <p class="text-gray-600">
+                        Tracking income dari berbagai project dan kelola pengeluaran bisnis
+                    </p>
+                </div>
+
+                <div class="text-center p-8 bg-white rounded-2xl shadow-sm card-hover">
+                    <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-icons text-4xl text-indigo-600">shopping_cart</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Toko Online</h3>
+                    <p class="text-gray-600">
+                        Integrasi dengan marketplace dan catat semua transaksi online Anda
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Integration -->
+    <section class="py-20 px-6 bg-white">
+
+        <div class="container mx-auto max-w-5xl">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 gradient-text">
+                    Dapatkan Akses SmartBook Sekarang
+                </h2>
+                <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+                    SmartBook tersedia di paket <span class="font-bold text-blue-600">Pro</span> dan <span
+                        class="font-bold text-purple-600">Enterprise</span> ZIFrameBot
+                </p>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-2 gap-6 mb-10">
+                <!-- Pro Package -->
+                <div
+                    class="bg-white rounded-3xl p-8 border-4 border-blue-500 hover:border-blue-600 shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 hover:transform hover:scale-105">
+                    <div
+                        class="inline-block px-4 py-1.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-bold rounded-full mb-4 shadow-lg">
+                        + SmartBook
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-blue-600">Paket Pro</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-gray-900">Rp199.000</span>
+                        <span class="text-lg text-gray-600">/bulan</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>2000 chat/bulan</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Multi Platform</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Support 24 Jam</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-blue-600 font-bold">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Akses SmartBook App</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Enterprise Package -->
+                <div
+                    class="bg-white rounded-3xl p-8 border-4 border-purple-500 hover:border-purple-600 shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 hover:transform hover:scale-105">
+                    <div
+                        class="inline-block px-4 py-1.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-bold rounded-full mb-4 shadow-lg">
+                        + SmartBook Premium
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2 text-purple-600">Paket Enterprise</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-gray-900">Kustom</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Chat tanpa batas</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Integrasi penuh API</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>Dedicated Support</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-purple-600 font-bold">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span>SmartBook Premium Access</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="order.html"
+                    class="px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center min-w-[240px]">
+                    Pesan Paket Sekarang
+                </a>
+                <a href="contact.html"
+                    class="px-10 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-full font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center min-w-[240px]">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-blue-900 text-white">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-3"
+                        style="background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        ZIFrameBot
+                    </h3>
+                    <p class="text-blue-200 text-sm mb-4 leading-relaxed max-w-md">
+                        Solusi chatbot cerdas berbasis AI untuk meningkatkan customer experience dan efisiensi bisnis
+                        Anda.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/ziframebot"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <span class="material-icons text-lg">facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/ziframebot"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <span class="material-icons text-lg">photo_camera</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@ziframebot" target="_blank"
+                            class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.96 2c.14 1.82 1.02 3.44 2.48 4.58 1.16.92 2.58 1.46 4.1 1.6v3.03c-1.88-.06-3.64-.63-5.17-1.62v6.26c0 3.18-2.58 5.75-5.75 5.75S2.87 19.03 2.87 15.85c0-3.18 2.58-5.75 5.75-5.75.42 0 .82.05 1.21.14v3.14a2.63 2.63 0 0 0-1.21-.29 2.76 2.76 0 1 0 2.76 2.76V2h2.58z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Produk -->
+                <div>
+                    <h5 class="font-bold mb-4 text-white text-lg">Produk</h5>
+                    <ul class="space-y-2 text-sm text-blue-200">
+                        <li><a href="features.html" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="chat.html" class="hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="smartbook.html" class="hover:text-white transition-colors">SmartBook</a></li>
+                        <li><a href="docs.html" class="hover:text-white transition-colors">Dokumentasi</a></li>
+                        <li><a href="order.html" class="hover:text-white transition-colors">Berlangganan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Perusahaan -->
+                <div>
+                    <h5 class="font-bold mb-4 text-white text-lg">Perusahaan</h5>
+                    <ul class="space-y-2 text-sm text-blue-200">
+                        <li><a href="about.html" class="hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-8 pt-6 text-center">
+                <p class="text-blue-200 text-sm">
+                    &copy; 2025 ZIFrameBot. All rights reserved. Made with ❤️ in Indonesia
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Company dropdown for desktop
+        const companyButton = document.getElementById('company-button');
+        const companyMenu = document.getElementById('company-menu');
+
+        if (companyButton && companyMenu) {
+            // Toggle dropdown on click
+            companyButton.addEventListener('click', function (event) {
+                event.stopPropagation();
+                companyMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!companyButton.contains(event.target) && !companyMenu.contains(event.target)) {
+                    if (!companyMenu.classList.contains('hidden')) {
+                        companyMenu.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Prevent dropdown from closing when clicking inside it
+            companyMenu.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        }
+    </script>
+</body>
+
+</html>
