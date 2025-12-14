@@ -32,31 +32,25 @@ function submitEnterpriseForm(e) {
     // Close Enterprise modal
     closeEnterpriseModal();
 
-    // Show success modal with Enterprise plan
+    // Show Enterprise success modal
     setTimeout(() => {
-        const successPlanName = document.getElementById('successPlanName');
-        if (successPlanName) {
-            successPlanName.textContent = 'Enterprise';
-        }
-
-        // Hide SmartBook credentials for Enterprise (will be provided after verification)
-        const smartbookCredentials = document.getElementById('smartbookCredentials');
-        const smartbookAccessBtn = document.getElementById('smartbookAccessBtn');
-        if (smartbookCredentials) {
-            smartbookCredentials.classList.add('hidden');
-        }
-        if (smartbookAccessBtn) {
-            smartbookAccessBtn.classList.add('hidden');
-        }
-
-        // Open success modal
-        if (typeof openSuccessModal === 'function') {
-            openSuccessModal();
-        }
+        openEnterpriseSuccessModal();
     }, 300);
+}
+
+// Function to open Enterprise success modal
+function openEnterpriseSuccessModal() {
+    document.getElementById('enterpriseSuccessModal').classList.remove('hidden');
+}
+
+// Function to close Enterprise success modal
+function closeEnterpriseSuccessModal() {
+    document.getElementById('enterpriseSuccessModal').classList.add('hidden');
 }
 
 // Make functions available globally
 window.openEnterpriseModal = openEnterpriseModal;
 window.closeEnterpriseModal = closeEnterpriseModal;
 window.submitEnterpriseForm = submitEnterpriseForm;
+window.openEnterpriseSuccessModal = openEnterpriseSuccessModal;
+window.closeEnterpriseSuccessModal = closeEnterpriseSuccessModal;

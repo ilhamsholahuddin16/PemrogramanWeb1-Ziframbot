@@ -584,6 +584,77 @@
         </div>
     </div>
 
+    <!-- Enterprise Request Success Modal -->
+    <div id="enterpriseSuccessModal" class="fixed inset-0 z-[70] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 backdrop-blur-sm"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center">
+                <div
+                    class="relative transform overflow-hidden rounded-xl bg-white text-center shadow-2xl transition-all sm:w-full sm:max-w-md p-8">
+
+                    <!-- Success Icon -->
+                    <div
+                        class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-green-100 to-emerald-100 mb-6 animate-bounce">
+                        <svg class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+
+                    <!-- Title -->
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Permintaan Diterima!</h3>
+
+                    <!-- Message -->
+                    <p class="text-base text-gray-600 mb-6 leading-relaxed">
+                        Terima kasih atas minat Anda pada <span class="font-bold text-purple-600">Paket
+                            Enterprise</span>.
+                        Permintaan Anda telah kami terima dan sedang dalam proses verifikasi.
+                    </p>
+
+                    <!-- Info Box -->
+                    <div
+                        class="bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-purple-200 rounded-xl p-5 mb-6 text-left">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                            </svg>
+                            <div class="text-sm text-gray-700">
+                                <p class="font-semibold mb-1">Langkah Selanjutnya:</p>
+                                <p>Tim kami akan menghubungi Anda dalam <span class="font-bold text-purple-600">1x24
+                                        jam</span> melalui email atau telepon untuk diskusi lebih lanjut mengenai solusi
+                                    Enterprise yang sesuai dengan kebutuhan bisnis Anda.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                        <p class="text-xs text-gray-500 mb-2">Butuh bantuan segera?</p>
+                        <a href="mailto:contact@ziframebot.web.id"
+                            class="text-sm font-semibold text-blue-600 hover:text-purple-600 transition-colors">
+                            contact@ziframebot.web.id
+                        </a>
+                        <span class="text-gray-400 mx-2">|</span>
+                        <a href="tel:+6285155355012"
+                            class="text-sm font-semibold text-blue-600 hover:text-purple-600 transition-colors">
+                            +62 851-5535-5012
+                        </a>
+                    </div>
+
+                    <!-- Close Button -->
+                    <button type="button" onclick="closeEnterpriseSuccessModal()"
+                        class="w-full justify-center rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:shadow-xl transition-all">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Benefits Section -->
     <section class="py-20 px-6 bg-white">
         <div class="container mx-auto max-w-6xl">
@@ -640,76 +711,195 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Testimonials Section -->
     <section class="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div class="container mx-auto max-w-4xl">
+        <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-display font-bold mb-4 gradient-text">
-                    Pertanyaan Umum
+                    Dipercaya oleh Ribuan Bisnis
                 </h2>
                 <p class="text-xl text-gray-700">
-                    Jawaban untuk pertanyaan yang sering ditanyakan
+                    Cerita sukses dari pelanggan kami yang telah menggunakan ZIFrameBot
                 </p>
             </div>
 
-            <div class="space-y-4">
-                <!-- FAQ 1 -->
-                <div class="glass-effect p-6 rounded-2xl bg-white">
-                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                        <span class="material-icons text-blue-600">help_outline</span>
-                        Bagaimana cara memulai berlangganan?
-                    </h3>
-                    <p class="text-gray-700 ml-8">
-                        Pilih paket yang sesuai, klik "Pilih Paket", lalu isi form pembayaran. Tim kami akan
-                        mengaktifkan akun Anda dalam 1x24 jam.
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-effect p-8 rounded-2xl bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Chatbot dari ZIFrameBot sangat membantu bisnis saya! Respon customer jadi lebih cepat dan tim
+                        saya
+                        bisa fokus ke hal lain yang lebih penting."
                     </p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                            AS
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Zacky</h4>
+                            <p class="text-sm text-gray-600">Owner Toko Online</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- FAQ 2 -->
-                <div class="glass-effect p-6 rounded-2xl bg-white">
-                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                        <span class="material-icons text-blue-600">help_outline</span>
-                        Apakah saya bisa upgrade paket nanti?
-                    </h3>
-                    <p class="text-gray-700 ml-8">
-                        Tentu! Anda dapat upgrade atau downgrade paket kapan saja sesuai kebutuhan bisnis Anda.
+                <!-- Testimonial 2 -->
+                <div class="glass-effect p-8 rounded-2xl bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Setup-nya mudah banget! Dalam 2 jam udah bisa langsung digunakan. Customer service juga sangat
+                        responsif membantu."
                     </p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
+                            RP
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Nur Cahaya</h4>
+                            <p class="text-sm text-gray-600">Manager Cafe</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- FAQ 3 -->
-                <div class="glass-effect p-6 rounded-2xl bg-white">
-                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                        <span class="material-icons text-blue-600">help_outline</span>
-                        Apakah ada biaya setup atau instalasi?
-                    </h3>
-                    <p class="text-gray-700 ml-8">
-                        Tidak ada biaya tambahan! Harga yang tertera sudah termasuk setup, instalasi, dan support.
+                <!-- Testimonial 3 -->
+                <div class="glass-effect p-8 rounded-2xl bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "ROI-nya luar biasa! Biaya customer service berkurang drastis dan conversion rate meningkat
+                        40%."
                     </p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold">
+                            BW
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sholahuddin</h4>
+                            <p class="text-sm text-gray-600">Founder Startup EdTech</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- FAQ 4 -->
-                <div class="glass-effect p-6 rounded-2xl bg-white">
-                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                        <span class="material-icons text-blue-600">help_outline</span>
-                        Bagaimana jika saya butuh bantuan teknis?
-                    </h3>
-                    <p class="text-gray-700 ml-8">
-                        Semua paket sudah termasuk support. Paket Pro dan Enterprise mendapatkan support prioritas 24
-                        jam.
+                <!-- Testimonial 4 -->
+                <div class="glass-effect p-8 rounded-2xl bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Fitur analytics-nya sangat membantu kami memahami customer behavior. Recommended banget untuk
+                        UMKM!"
                     </p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold">
+                            DP
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Dewi Dari Langit</h4>
+                            <p class="text-sm text-gray-600">Owner Brand Skincare</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- FAQ 5 -->
-                <div class="glass-effect p-6 rounded-2xl bg-white">
-                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                        <span class="material-icons text-blue-600">help_outline</span>
-                        Apakah data saya aman?
-                    </h3>
-                    <p class="text-gray-700 ml-8">
-                        Sangat aman! Kami menggunakan enkripsi SSL dan mematuhi standar keamanan data internasional.
+                <!-- Testimonial 5 -->
+                <div class="glass-effect p-8 rounded-2xl bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Support 24/7 nya top! Pernah ada kendala tengah malam, langsung dibantu sampai solved.
+                        Profesional!"
                     </p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                            FH
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Fajar Embun</h4>
+                            <p class="text-sm text-gray-600">Director E-Commerce</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="glass-effect p-8 rounded-2xl bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Game changer untuk bisnis digital marketing kami! Client jadi lebih puas dengan response time
+                        yang
+                        super cepat."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-white font-bold">
+                            LM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sakura</h4>
+                            <p class="text-sm text-gray-600">CEO Digital Agency</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Trust Badge -->
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-2 bg-white px-8 py-4 rounded-full shadow-lg">
+                    <span class="material-icons text-green-500 text-3xl">verified</span>
+                    <div class="text-left">
+                        <p class="font-bold text-gray-900">2,500+ Bisnis Aktif</p>
+                        <p class="text-sm text-gray-600">Rating 4.9/5.0 dari 1,200+ Reviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section (Merged) -->
